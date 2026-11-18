@@ -122,3 +122,41 @@ def consultar_historico():
         print("Requisitado em:", livro["data_requisicao"])
         print("Devolvido em:", livro["data_devolucao"])
         print("-------------------------")
+
+# Menu principal
+while True:
+    print("\n===== BIBLIOTECA =====")
+    print("1 - Mostrar livros disponíveis")
+    print("2 - Requisitar livro")
+    print("3 - Consultar livros requisitados")
+    print("4 - Consultar datas de devolução")
+    print("5 - Devolver livro")
+    print("6 - Consultar histórico")
+    print("0 - Sair")
+
+    opcao = input("\nEscolhe uma opção: ")
+
+    if opcao == "1":
+        mostrar_livros()
+
+    elif opcao == "2":
+        requisitar_livro()
+
+    elif opcao == "3":
+        consultar_requisicoes()
+
+    elif opcao == "4":
+        consultar_datas()
+
+    elif opcao == "5":
+        devolver_livro()
+
+    elif opcao == "6":
+        consultar_historico()
+
+    elif opcao == "0":
+        print("A sair do programa...")
+        break
+
+    else:
+        print("Opção inválida!")
