@@ -108,3 +108,17 @@ def devolver_livro():
             return
 
     print("Não tens esse livro requisitado.")
+
+# Consultar histórico
+def consultar_historico():
+    print("\n--- HISTÓRICO DE REQUISIÇÕES ---")
+
+    if len(historico) == 0:
+        print("Ainda não existem requisições anteriores.")
+        return
+
+    for livro in historico:
+        print("Livro:", livro["titulo"])
+        print("Requisitado em:", livro["data_requisicao"])
+        print("Devolvido em:", livro["data_devolucao"])
+        print("-------------------------")
