@@ -59,3 +59,52 @@ def requisitar_livro():
             return
 
     print("Livro não encontrado.")
+
+
+    # Consultar livros requisitados
+def consultar_requisicoes():
+    print("\n--- LIVROS REQUISITADOS ---")
+
+    if len(requisicoes) == 0:
+        print("Não tens livros requisitados.")
+        return
+
+    for livro in requisicoes:
+        print("Livro:", livro["titulo"])
+        print("Data limite:", livro["data_limite"])
+        print("-------------------------")
+
+
+# Consultar datas limite
+def consultar_datas():
+    print("\n--- DATAS DE DEVOLUÇÃO ---")
+
+    for livro in requisicoes:
+        print(livro["titulo"], "-", livro["data_limite"])
+
+
+# Devolver um livro
+def devolver_livro():
+    consultar_requisicoes()
+
+    if len(requisicoes) == 0:
+        return
+
+    titulo = input("\nIndica o nome do livro a devolver: ")
+
+    for requisicao in requisicoes:
+        if requisicao["titulo"].lower() == titulo.lower():
+
+            requisicao["data_devolucao"] = date.today()
+            historico.append(requisicao.copy())
+
+            requisicoes.remove(requisicao)
+
+            for livro in livros:
+                if livro["titulo"] == titulo:
+                    livro["disponivel"] = True
+
+            print("Livro devolvido com sucesso!")
+            return
+
+    print("Não tens esse livro requisitado.")
