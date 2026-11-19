@@ -51,8 +51,7 @@ def mostrar_catalogo(catalogo: list[dict] | None = None) -> None:
 
 
 def pesquisar_por_titulo(
-    titulo: str, catalogo: list[dict] | None = None
-) -> list[dict]:
+    titulo: str, catalogo: list[dict] | None = None) -> list[dict]:
     """Mostra os livros cujo título tem o texto procurado."""
     obras = consultar_catalogo(catalogo)
     termo = titulo.strip().lower()
@@ -67,6 +66,22 @@ def pesquisar_por_titulo(
 
     return resultados
 
+def pesquisar_por_autor(
+    autor: str, catalogo: list[dict] | None = None) -> list[dict]:
+    """Devolve os livros cujo autor contém o texto pesquisado."""
+    obras = consultar_catalogo(catalogo)
+    termo = autor.strip().lower()
+
+    if not termo:
+        return []
+
+    resultados = []
+    for livro in obras:
+        if termo in livro.get("autor", "").lower():
+            resultados.append(livro)
+
+    return resultados
+
 
 def menu_catalogo() -> None:
     """Mostra um menu para realizar as opções disponíveis."""
@@ -74,6 +89,7 @@ def menu_catalogo() -> None:
         print("\n=== MENU CATÁLOGO ===")
         print("1 - Consultar catálogo completo")
         print("2 - Pesquisar livro por título")
+        print("3 - Pesquisar livro por autor")
         print("0 - Voltar ao menu principal")
 
         opcao = input("Escolhe uma opção: ").strip()
@@ -84,6 +100,11 @@ def menu_catalogo() -> None:
         elif opcao == "2":
             termo = input("Escreve o título a pesquisar: ")
             resultados = pesquisar_por_titulo(termo)
+            mostrar_catalogo(resultados)
+            input("\nPressiona ENTER para continuar...")
+        elif opcao == "3":
+            termo = input("Escreve o nome do autor a pesquisar: ")
+            resultados = pesquisar_por_autor(termo)
             mostrar_catalogo(resultados)
             input("\nPressiona ENTER para continuar...")
         elif opcao == "0":
