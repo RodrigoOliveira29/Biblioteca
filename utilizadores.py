@@ -17,7 +17,12 @@ def criar_conta(lista_utilizadores):
         return False
 
     nome = input("Introduz o teu nome completo: ").strip()
-    email = input("Introduz o teu e-mail: ").strip()
+    
+    while True:
+        email = input("Introduz o teu e-mail: ").strip()
+        if "@" in email:
+            break
+        print("Erro: O e-mail tem de conter obrigatoriamente o símbolo '@'. Tenta novamente.")
 
     novo_utilizador = {
         "username": username,
@@ -59,3 +64,47 @@ def terminar_sessao(utilizador_atual):
     
     print(f"\nSessão terminada com sucesso para o utilizador: {utilizador_atual.get('username')}.")
     return None
+
+def alterar_dados_pessoais(utilizador_atual):
+    """Permite alterar os dados pessoais (nome, e-mail e palavra-passe) do utilizador com sessão ativa."""
+    if utilizador_atual is None:
+        print("\nErro: Tens de iniciar sessão primeiro para poderes alterar os teus dados.")
+        return False
+
+    print(f"\n=== Alterar Dados Pessoais ({utilizador_atual.get('username')}) ===")
+    print("1. Alterar Nome")
+    print("2. Alterar E-mail")
+    print("3. Alterar Palavra-passe")
+    print("0. Voltar")
+    
+    opcao = input("Escolhe uma opção: ").strip()
+
+    if opcao == "1":
+        novo_nome = input("Introduz o novo nome completo: ").strip()
+        if novo_nome:
+            utilizador_atual['nome'] = novo_nome
+            print("Nome alterado com sucesso!")
+        else:
+            print("Erro: O nome não pode estar vazio.")
+            
+    elif opcao == "2":
+        while True:
+            novo_email = input("Introduz o novo e-mail: ").strip()
+            if "@" in novo_email:
+                utilizador_atual['email'] = novo_email
+                print("E-mail alterado com sucesso!")
+                break
+            print("Erro: O e-mail tem de conter obrigatoriamente o símbolo '@'. Tenta novamente.")
+            
+    elif opcao == "3":
+        nova_pass = input("Introduz a nova palavra-passe: ").strip()
+        if nova_pass:
+            utilizador_atual['password'] = nova_pass
+            print("Palavra-passe alterada com sucesso!")
+        else:
+            print("Erro: A palavra-passe não pode estar vazia.")
+            
+    elif opcao == "0":
+        print("Operação cancelada.")
+    else:
+        print("Opção inválida.")
