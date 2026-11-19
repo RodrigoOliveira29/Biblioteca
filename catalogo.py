@@ -36,6 +36,111 @@ CATALOGO_LIVROS = [
         "e Blimunda Sete-Luas, uma mulher dotada do dom de ver o interior das pessoas quando está em jejum. Juntos, auxiliam o padre Bartolomeu de Gusmão na construção da passarola, uma máquina voadora "
         "movida pelas vontades humanas recolhidas por Blimunda, enquanto enfrentam a perseguição implacável da Inquisição.",
     },
+    {
+        "id": 4,
+        "titulo": "A Cidade e as Serras",
+        "autor": "Eça de Queirós",
+        "genero": "Romance",
+        "ano": 1901,
+        "disponivel": True,
+        "descricao": (
+            "A Cidade e as Serras é um romance de Eça de Queirós, publicado postumamente em 1901, que contrasta "
+            "a vida artificial e acelerada da Paris moderna com a serenidade e autenticidade do campo português. "
+            "A obra acompanha Jacinto, um aristocrata rico e cercado de invenções tecnológicas que acabam por lhe trazer "
+            "tédio e exaustão, até regressar às suas propriedades nas serras do Douro. Ao contacto com a natureza, a simplicidade "
+            "das gentes locais e os sabores da terra, Jacinto redescobre o verdadeiro sentido da felicidade e da paz interior."
+        ),
+    },
+    {
+        "id": 5,
+        "titulo": "O Primo Basílio",
+        "autor": "Eça de Queirós",
+        "genero": "Romance",
+        "ano": 1878,
+        "disponivel": True,
+        "descricao": (
+            "O Primo Basílio é um romance realista de Eça de Queirós, publicado em 1878, que retrata a burguesia lisboeta "
+            "da segunda metade do século XIX e as suas hipocrisias sociais. A narrativa gira em torno de Luísa, uma jovem "
+            "casada com Jorge que se deixa envolver numa relação adúltera com o primo Basílio durante uma ausência do marido. "
+            "Quando o segredo cai nas mãos da criada Juliana, o drama ganha tons de chantagem e pressão psicológica, "
+            "expondo as fragilidades morais e os preconceitos da sociedade da época."
+        ),
+    },
+    {
+        "id": 6,
+        "titulo": "Viagens na Minha Terra",
+        "autor": "Almeida Garrett",
+        "genero": "Crónica e Romance",
+        "ano": 1846,
+        "disponivel": True,
+        "descricao": (
+            "Viagens na Minha Terra é uma obra marcante do romantismo português, publicada em livro em 1846, que cruza "
+            "relatos de viagem, reflexão política e uma história de amor trágica. O narrador parte de Lisboa em direção "
+            "a Santarém num Portugal marcado pelas divisões e sequelas das lutas liberais, partilhando impressões sobre "
+            "as paisagens e os costumes do país. Ao longo do percurso, insere a comovente história de Carlos e Joaninha, "
+            "cujo destino é abalado por segredos familiares e conflitos políticos."
+        ),
+    },
+    {
+        "id": 7,
+        "titulo": "Contos Exemplares",
+        "autor": "Sophia de Mello Breyner Andresen",
+        "genero": "Conto",
+        "ano": 1962,
+        "disponivel": True,
+        "descricao": (
+            "Contos Exemplares é uma coletânea de contos de Sophia de Mello Breyner Andresen, publicada em 1962, que "
+            "explora temas como a justiça, a dignidade humana, o tempo e a relação com o mar e a natureza. Com uma escrita "
+            "clara, contida e de grande força simbólica, cada narrativa apresenta personagens postas à prova perante escolhas "
+            "morais ou situações limite. A obra reflete também uma inquietação cívica e ética face às injustiças e "
+            "à opressão vividas no período do Estado Novo."
+        ),
+    },
+    {
+        "id": 8,
+        "titulo": "A Relíquia",
+        "autor": "Eça de Queirós",
+        "genero": "Sátira",
+        "ano": 1887,
+        "disponivel": True,
+        "descricao": (
+            "A Relíquia é um romance satírico de Eça de Queirós, publicado em 1887, que critica com humor mordaz a "
+            "falsa devoção religiosa e o oportunismo social. O protagonista, Teodorico Raposo, vive na dependência da tia "
+            "Patrocínio, uma mulher beata e autoritária de quem espera herdar fortuna, levando uma vida dupla feita de "
+            "aparências piedosas e excessos escondidos. Enviado à Terra Santa em busca de uma relíquia sagrada, acaba "
+            "por protagonizar uma troca de embrulhos que vira a sua farsa do avesso."
+        ),
+    },
+    {
+        "id": 9,
+        "titulo": "Ensaio sobre a Cegueira",
+        "autor": "José Saramago",
+        "genero": "Ficção",
+        "ano": 1995,
+        "disponivel": True,
+        "descricao": (
+            "Ensaio sobre a Cegueira é um romance de José Saramago, publicado em 1995, que imagina uma epidemia súbita "
+            "de cegueira branca que se espalha sem explicação aparente numa cidade sem nome. À medida que o número de "
+            "cegos aumenta, as autoridades colocam os primeiros infetados em quarentena e a ordem social começa a "
+            "colapsar rapidamente. No meio do caos e da brutalidade, a única pessoa que mantém a visão acompanha um "
+            "pequeno grupo na luta pela sobrevivência e pela humanidade."
+        ),
+    },
+    {
+        "id": 10,
+        "titulo": "Noites Brancas",
+        "autor": "Fiódor Dostoiévski",
+        "genero": "Novela",
+        "ano": 1848,
+        "disponivel": True,
+        "descricao": (
+            "Noites Brancas é uma novela de Fiódor Dostoiévski, publicada em 1848, passada em São Petersburgo durante "
+            "a luminosidade suave das noites de verão. O protagonista é um jovem solitário e sonhador que vive mais "
+            "no mundo da imaginação do que na realidade quotidiana, até conhecer Nástenka junto ao canal. Ao longo de "
+            "quatro noites marcadas por confidências e esperança, nasce entre ambos uma ligação intensa confrontada "
+            "com a espera de um amor antigo."
+        ),
+    },
 ]
 
 
