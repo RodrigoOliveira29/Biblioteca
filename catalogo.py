@@ -124,6 +124,22 @@ def mostrar_detalhes_livro(
         print(f"Descrição: {livro.get('descricao', 'Sem descrição disponível.')}")
 
 
+def filtrar_por_genero(
+    genero: str, catalogo: list[dict] | None = None) -> list[dict]:
+    """Devolve os livros que pertencem ao género literário indicado."""
+    obras = consultar_catalogo(catalogo)
+    termo = genero.strip().lower()
+
+    if not termo:
+        return []
+
+    resultados = []
+    for livro in obras:
+        if termo in livro.get("genero", "").lower():
+            resultados.append(livro)
+
+    return resultados
+
 
 def menu_catalogo() -> None:
     """Mostra um menu para realizar as opções disponíveis."""
@@ -133,6 +149,7 @@ def menu_catalogo() -> None:
         print("2 - Pesquisar livro por título")
         print("3 - Pesquisar livro por autor")
         print("4 - Consultar detalhes de um livro")
+        print("5 - Filtrar livros por género")  
         print("0 - Voltar ao menu principal")
 
         opcao = input("Escolhe uma opção: ").strip()
@@ -153,6 +170,11 @@ def menu_catalogo() -> None:
         elif opcao == "4":
             titulo = input("Escreve o título do livro: ").strip()
             mostrar_detalhes_livro(titulo)
+            input("\nPressiona ENTER para continuar...")
+        elif opcao == "5":
+            genero = input("Escreve o género literário: ")
+            resultados = filtrar_por_genero(genero)
+            mostrar_catalogo(resultados)
             input("\nPressiona ENTER para continuar...")
         elif opcao == "0":
             print("A voltar ao menu principal...")
