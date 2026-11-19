@@ -27,14 +27,14 @@ CATALOGO_LIVROS = [
 
 
 def consultar_catalogo(catalogo: list[dict] | None = None) -> list[dict]:
-    """Vai buscar e devolve a lista de livros do catálogo"""
+    """Vai buscar e devolve a lista de livros do catálogo."""
     if catalogo is None:
         catalogo = CATALOGO_LIVROS
     return catalogo
 
 
 def mostrar_catalogo(catalogo: list[dict] | None = None) -> None:
-    """Imprime os livros do catálogo no ecrã"""
+    """Imprime os livros do catálogo no ecrã."""
     obras = consultar_catalogo(catalogo)
 
     if not obras:
@@ -50,5 +50,25 @@ def mostrar_catalogo(catalogo: list[dict] | None = None) -> None:
         )
 
 
+def pesquisar_por_titulo(
+    titulo: str, catalogo: list[dict] | None = None
+) -> list[dict]:
+    """Devolve os livros cujo título contém o texto pesquisado."""
+    obras = consultar_catalogo(catalogo)
+    termo = titulo.strip().lower()
+
+    if not termo:
+        return []
+
+    resultados = []
+    for livro in obras:
+        if termo in livro.get("titulo", "").lower():
+            resultados.append(livro)
+
+    return resultados
+
+
 if __name__ == "__main__":
     mostrar_catalogo()
+    termo = input("\nEscreve o título a pesquisar: ")
+    mostrar_catalogo(pesquisar_por_titulo(termo))
