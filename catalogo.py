@@ -53,7 +53,7 @@ def mostrar_catalogo(catalogo: list[dict] | None = None) -> None:
 def pesquisar_por_titulo(
     titulo: str, catalogo: list[dict] | None = None
 ) -> list[dict]:
-    """Devolve os livros cujo título contém o texto pesquisado."""
+    """Mostra os livros cujo título tem o texto procurado."""
     obras = consultar_catalogo(catalogo)
     termo = titulo.strip().lower()
 
@@ -68,7 +68,30 @@ def pesquisar_por_titulo(
     return resultados
 
 
+def menu_catalogo() -> None:
+    """Mostra um menu para realizar as opções disponíveis."""
+    while True:
+        print("\n=== MENU CATÁLOGO ===")
+        print("1 - Consultar catálogo completo")
+        print("2 - Pesquisar livro por título")
+        print("0 - Voltar ao menu principal")
+
+        opcao = input("Escolhe uma opção: ").strip()
+
+        if opcao == "1":
+            mostrar_catalogo()
+            input("\nPressiona ENTER para continuar...")
+        elif opcao == "2":
+            termo = input("Escreve o título a pesquisar: ")
+            resultados = pesquisar_por_titulo(termo)
+            mostrar_catalogo(resultados)
+            input("\nPressiona ENTER para continuar...")
+        elif opcao == "0":
+            print("A voltar ao menu principal...")
+            return
+        else:
+            print("Opção inválida. Tenta novamente.")
+
+
 if __name__ == "__main__":
-    mostrar_catalogo()
-    termo = input("\nEscreve o título a pesquisar: ")
-    mostrar_catalogo(pesquisar_por_titulo(termo))
+    menu_catalogo()
