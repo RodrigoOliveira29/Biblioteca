@@ -141,6 +141,12 @@ def filtrar_por_genero(
     return resultados
 
 
+def obter_mais_requisitados(
+    catalogo: list[dict] | None = None, limite: int = 5) -> list[dict]:
+    """Devolve até 5 livros do catálogo para apresentar como mais requisitados."""
+    obras = consultar_catalogo(catalogo)
+    return obras[:limite]
+
 def menu_catalogo() -> None:
     """Mostra um menu para realizar as opções disponíveis."""
     while True:
@@ -150,6 +156,7 @@ def menu_catalogo() -> None:
         print("3 - Pesquisar livro por autor")
         print("4 - Consultar detalhes de um livro")
         print("5 - Filtrar livros por género")  
+        print("6 - Ver livros mais requisitados")
         print("0 - Voltar ao menu principal")
 
         opcao = input("Escolhe uma opção: ").strip()
@@ -175,6 +182,10 @@ def menu_catalogo() -> None:
             genero = input("Escreve o género literário: ")
             resultados = filtrar_por_genero(genero)
             mostrar_catalogo(resultados)
+            input("\nPressiona ENTER para continuar...")
+        elif opcao == "6":
+            destaques = obter_mais_requisitados()
+            mostrar_catalogo(destaques)
             input("\nPressiona ENTER para continuar...")
         elif opcao == "0":
             print("A voltar ao menu principal...")
