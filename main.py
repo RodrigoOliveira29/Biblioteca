@@ -1,10 +1,12 @@
+from catalogo import menu_catalogo
 from utilizadores import (
     criar_conta,
     iniciar_sessao,
     terminar_sessao,
     alterar_dados_pessoais,
-    eliminar_conta
+    eliminar_conta,
 )
+
 
 def main():
     lista_utilizadores = []
@@ -16,17 +18,18 @@ def main():
             print(f"👤 Utilizador ligado: {utilizador_atual['username']} ({utilizador_atual['nome']})")
         else:
             print("👤 Estado: Sem sessão iniciada")
-            
+
         print("1. Criar conta")
         print("2. Iniciar sessão")
-        
+
         if utilizador_atual:
             print("3. Terminar sessão")
             print("4. Alterar dados pessoais")
             print("5. Eliminar conta")
-            
+            print("6. Catálogo")
+
         print("0. Sair")
-        
+
         opcao = input("Escolhe uma opção: ").strip()
 
         if opcao == "1":
@@ -42,11 +45,14 @@ def main():
             alterar_dados_pessoais(utilizador_atual)
         elif opcao == "5" and utilizador_atual:
             utilizador_atual = eliminar_conta(utilizador_atual, lista_utilizadores)
+        elif opcao == "6" and utilizador_atual:
+            menu_catalogo()
         elif opcao == "0":
             print("A sair da aplicação. Até logo!")
             break
         else:
             print("Opção inválida ou não disponível neste estado.")
+
 
 if __name__ == "__main__":
     main()
