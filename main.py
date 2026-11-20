@@ -63,6 +63,7 @@ def main():
             print("1. Catálogo")
             print("2. Requisições")
             print("3. Conta")
+            print("2. Conta")
             print("0. Sair")
 
             opcao = input("Escolhe uma opção: ").strip()
