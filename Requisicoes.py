@@ -1,5 +1,6 @@
 from datetime import date, timedelta
 from catalogo import CATALOGO_LIVROS
+from prazos import mostrar_resumo_prazos
 
 # Lista de requisições ativas
 requisicoes = []
@@ -122,7 +123,18 @@ def consultar_historico():
         print("-------------------------")
 
 
+def verificar_avisos_utilizador(dias_aviso: int = 3, mostrar_se_vazio: bool = False):
+    """Mostra o tempo restante e dispara avisos quando o prazo está perto."""
+    mostrar_resumo_prazos(
+        requisicoes,
+        dias_aviso=dias_aviso,
+        mostrar_se_vazio=mostrar_se_vazio,
+    )
+
+
 def menu_requisicoes():
+    verificar_avisos_utilizador(dias_aviso=3, mostrar_se_vazio=False)
+
     while True:
         print("\n===== REQUISIÇÕES =====")
         print("1 - Mostrar livros disponíveis")
@@ -137,21 +149,28 @@ def menu_requisicoes():
 
         if opcao == "1":
             mostrar_livros()
+            input("\nPressiona ENTER para continuar...")
         elif opcao == "2":
             requisitar_livro()
+            input("\nPressiona ENTER para continuar...")
         elif opcao == "3":
             consultar_requisicoes()
+            input("\nPressiona ENTER para continuar...")
         elif opcao == "4":
             consultar_datas()
+            input("\nPressiona ENTER para continuar...")
         elif opcao == "5":
             devolver_livro()
+            input("\nPressiona ENTER para continuar...")
         elif opcao == "6":
             consultar_historico()
+            input("\nPressiona ENTER para continuar...")
         elif opcao == "0":
             print("A voltar...")
             break
         else:
             print("Opção inválida!")
+            input("\nPressiona ENTER para continuar...")
 
 
 if __name__ == "__main__":
