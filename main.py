@@ -1,3 +1,4 @@
+from Requisicoes import menu_requisicoes
 from catalogo import menu_catalogo
 from utilizadores import (
     criar_conta,
@@ -60,6 +61,8 @@ def main():
         else:
             print(f"👤 Utilizador ligado: {utilizador_atual['username']} ({utilizador_atual['nome']})")
             print("1. Catálogo")
+            print("2. Requisições")
+            print("3. Conta")
             print("2. Conta")
             print("0. Sair")
 
@@ -68,6 +71,8 @@ def main():
             if opcao == "1":
                 menu_catalogo()
             elif opcao == "2":
+                menu_requisicoes()
+            elif opcao == "3":
                 utilizador_atual = menu_conta(utilizador_atual, lista_utilizadores)
             elif opcao == "0":
                 print("A sair da aplicação. Até logo!")
