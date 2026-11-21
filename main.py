@@ -1,3 +1,4 @@
+from informacoes import menu_informacoes
 from Requisicoes import menu_requisicoes
 from catalogo import menu_catalogo
 from favoritos import menu_favoritos
@@ -63,6 +64,7 @@ def main():
             print("2. Requisições")
             print("3. Favoritos")
             print("4. Conta")
+            print("5. Informações")
             print("0. Sair")
 
             opcao = input("Escolhe uma opção: ").strip()
@@ -75,6 +77,8 @@ def main():
                 menu_favoritos(utilizador_atual['username'])
             elif opcao == "4":
                 utilizador_atual = menu_conta(utilizador_atual, lista_utilizadores)
+            elif opcao == "5":
+                menu_informacoes()
             elif opcao == "0":
                 print("A sair da aplicação. Até logo!")
                 break
