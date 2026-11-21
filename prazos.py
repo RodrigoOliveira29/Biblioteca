@@ -1,3 +1,4 @@
+"""Módulo de gestão e consulta de prazos de devolução da biblioteca."""
 from datetime import date
 
 
