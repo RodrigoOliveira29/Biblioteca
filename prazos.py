@@ -109,3 +109,12 @@ def mostrar_resumo_prazos(
         data_referencia=data_referencia,
         mostrar_se_vazio=False,
     )
+
+
+def menu_prazos() -> None:
+    """Abre a vista de prazos e avisos de devolução."""
+    from Requisicoes import requisicoes
+
+    print("\n=== PRAZOS DE DEVOLUÇÃO ===")
+    mostrar_resumo_prazos(requisicoes, dias_aviso=3, mostrar_se_vazio=True)
+    input("\nPressiona ENTER para continuar...")
