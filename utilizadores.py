@@ -15,19 +15,11 @@ def criar_conta(lista_utilizadores):
         print("Erro: Esse nome de utilizador já existe.")
         return False
 
-    password = input("Escolhe uma palavra-passe (ou '0' para cancelar): ").strip()
-    if password == "0":
-        print("Operação cancelada.")
-        return False
-    if not password:
-        print("Erro: A palavra-passe não pode estar vazia.")
-        return False
-
     nome = input("Introduz o teu nome completo (ou '0' para cancelar): ").strip()
     if nome == "0":
         print("Operação cancelada.")
         return False
-    
+
     while True:
         email = input("Introduz o teu e-mail (ou '0' para cancelar): ").strip()
         if email == "0":
@@ -36,6 +28,14 @@ def criar_conta(lista_utilizadores):
         if "@" in email:
             break
         print("Erro: O e-mail tem de conter obrigatoriamente o símbolo '@'. Tenta novamente.")
+
+    password = input("Escolhe uma palavra-passe (ou '0' para cancelar): ").strip()
+    if password == "0":
+        print("Operação cancelada.")
+        return False
+    if not password:
+        print("Erro: A palavra-passe não pode estar vazia.")
+        return False
 
     novo_utilizador = {
         "username": username,
